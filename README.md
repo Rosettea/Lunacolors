@@ -1,7 +1,7 @@
 # Lunacolors
 > 💫 🎨 ANSI colors library for Lua. 
 
-<img src="https://modeus.is-inside.me/YnSkwYOl.png"><br>
+<img src="https://modeus.is-inside.me/TAkcuEjm.png"><br>
 
 Lunacolors is an elegant library for handling ANSI colors in Lua.  
 It is being developed as an alternative to Hilbish's Ansikit port for colors,
