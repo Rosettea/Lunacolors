@@ -9,7 +9,8 @@ local styles = {
 }
 
 for _, k in ipairs(styles) do
-	if k ~= 'version' then
-		print(lunacolors[k](k) .. '  ' .. k)
-	end
+	if k == 'red' or k == 'redBg' then io.write '\n' end
+	io.write(lunacolors[k](k) .. '  ')
 end
+
+io.write '\n'
