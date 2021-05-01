@@ -1,16 +1,15 @@
 Lunacolors = {}
 
 function init(name, codes)
-	Lunacolors[name] = ansi(codes[1], codes[2])
-end
-
-function ansi(open, close)
-	return function(text)
-		if text == nil then return '\27[' .. open .. 'm' end
-		return '\27[' .. open .. 'm' .. text .. '\27[' .. close .. 'm'
+	Lunacolors[name] = function(text)
+		return ansi(codes[1], codes[2], text)
 	end
 end
 
+function ansi(open, close, text)
+	if text == nil then return '\27[' .. open .. 'm' end
+	return '\27[' .. open .. 'm' .. text .. '\27[' .. close .. 'm'
+end
 
 -- Define colors
 -- Modifiers
@@ -64,5 +63,47 @@ init('brightCyanBg', {106, 49})
 init('brightWhiteBg', {107, 49})
 
 Lunacolors.version = '0.1.0'
+Lunacolors.format = function(text)
+	local colors = {
+		-- TODO: write codes manually instead of using functions
+		-- less function calls = faster ????????
+		reset = {'{reset}', ansi(0)},
+		bold = {'{bold}', ansi(1)},
+		dim = {'{dim}', ansi(2)},
+		italic = {'{italic}', ansi(3)},
+		underline = {'{underline}', ansi(4)},
+		invert = {'{invert}', ansi(7)},
+		bold_off = {'{bold-off}', ansi(22)},
+		underline_off = {'{underline-off}', ansi(24)},
+		black = {'{black}', ansi(30)},
+		red = {'{red}', ansi(31)},
+		green = {'{green}', ansi(32)},
+		yellow = {'{yellow}', ansi(33)},
+		blue = {'{blue}', ansi(34)},
+		magenta = {'{magenta}', ansi(35)},
+		cyan = {'{cyan}', ansi(36)},
+		white = {'{white}', ansi(37)},
+		red_bg = {'{red-bg}', ansi(41)},
+		green_bg = {'{green-bg}', ansi(42)},
+		yellow_bg = {'{green-bg}', ansi(43)},
+		blue_bg = {'{blue-bg}', ansi(44)},
+		magenta_bg = {'{magenta-bg}', ansi(45)},
+		cyan_bg = {'{cyan-bg}', ansi(46)},
+		white_bg = {'{white-bg}', ansi(47)},
+		gray = {'{gray}', ansi(90)},
+		bright_red = {'{bright-red}', ansi(91)},
+		bright_green = {'{bright-green}', ansi(92)},
+		bright_yellow = {'{bright-yellow}', ansi(93)},
+		bright_blue = {'{bright-blue}', ansi(94)},
+		bright_magenta = {'{bright-magenta}', ansi(95)},
+		bright_cyan = {'{bright-cyan}', ansi(96)}
+	}
+
+	for k, v in pairs(colors) do
+		text = text:gsub(v[1], v[2])
+	end
+
+	return text .. colors['reset'][2]
+end
 
 return Lunacolors
