@@ -52,7 +52,7 @@ init('brightMagenta', {95, 39})
 init('brightCyan', {96, 39})
 init('brightWhite', {97, 39})
 
--- Bright background 
+-- Bright background
 init('brightBlackBg', {100, 49})
 init('brightRedBg', {101, 49})
 init('brightGreenBg', {102, 49})
@@ -100,7 +100,7 @@ Lunacolors.format = function(text)
 	}
 
 	for k, v in pairs(colors) do
-		text = text:gsub(v[1], v[2])
+		text = text:gsub(v[1]:gsub('-', '%-'), v[2])
 	end
 
 	return text .. colors['reset'][2]
