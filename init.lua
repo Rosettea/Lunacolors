@@ -100,7 +100,7 @@ Lunacolors.format = function(text)
 	}
 
 	for k, v in pairs(colors) do
-		text = text:gsub(v[1]:gsub('-', '%-'), v[2])
+		text = text:gsub(v[1]:gsub('-', '%%-'), v[2])
 	end
 
 	return text .. colors['reset'][2]
