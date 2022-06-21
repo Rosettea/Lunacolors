@@ -83,6 +83,7 @@ Lunacolors.format = function(text)
 		magenta = {'{magenta}', ansi(35)},
 		cyan = {'{cyan}', ansi(36)},
 		white = {'{white}', ansi(37)},
+		black_bg = {'{blackBg}', ansi(40)},
 		red_bg = {'{redBg}', ansi(41)},
 		green_bg = {'{greenBg}', ansi(42)},
 		yellow_bg = {'{yellowBg}', ansi(43)},
