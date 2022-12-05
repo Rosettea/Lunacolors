@@ -8,7 +8,7 @@ local Lunacolors = {
 		boldOff = ansi(22),
 		underlineOff = ansi(24)
 	},
-	version = 'v0.2.0'
+	version = 'v0.2.1'
 }
 
 function init(name, codes)
