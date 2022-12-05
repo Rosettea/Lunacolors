@@ -1,5 +1,5 @@
 Name: {{{ git_dir_name }}}
-Version: 0.2.1
+Version: {{{ git_dir_version }}}
 Release: 1%{?dist}
 Summary: ANSI colors library for Lua
 License: MIT
