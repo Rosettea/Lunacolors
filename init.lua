@@ -1,5 +1,14 @@
-Lunacolors = {
-	formatColors = {}
+function ansi(open, close, text)
+	if text == nil then return '\27[' .. open .. 'm' end
+	return '\27[' .. open .. 'm' .. text .. '\27[' .. close .. 'm'
+end
+
+local Lunacolors = {
+	formatColors = {
+		boldOff = ansi(22),
+		underlineOff = ansi(24)
+	},
+	version = 'v0.2.0'
 }
 
 function init(name, codes)
@@ -7,11 +16,6 @@ function init(name, codes)
 		return ansi(codes[1], codes[2], text)
 	end
 	Lunacolors.formatColors[name] = ansi(codes[1])
-end
-
-function ansi(open, close, text)
-	if text == nil then return '\27[' .. open .. 'm' end
-	return '\27[' .. open .. 'm' .. text .. '\27[' .. close .. 'm'
 end
 
 -- Define colors
@@ -69,8 +73,6 @@ init('brightBlueBg', {104, 49})
 init('brightMagentaBg', {105, 49})
 init('brightCyanBg', {106, 49})
 init('brightWhiteBg', {107, 49})
-
-Lunacolors.version = '0.1.0'
 
 Lunacolors.format = function(text)
 	for k, v in pairs(Lunacolors.formatColors) do
