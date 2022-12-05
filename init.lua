@@ -38,7 +38,6 @@ init('blue', {34, 39})
 init('magenta', {35, 39})
 init('cyan', {36, 39})
 init('white', {37, 39})
-init('white', {37, 39})
 
 -- Background colors
 init('blackBg', {40, 49})
